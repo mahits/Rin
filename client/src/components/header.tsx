@@ -8,11 +8,9 @@ import { Profile, ProfileContext } from "../state/profile";
 import { Icon } from "./icon";
 import { Padding } from "./padding";
 
-
 export function Header({ children }: { children?: React.ReactNode }) {
     const profile = useContext(ProfileContext);
     const { t } = useTranslation()
-
     return (
         <>
             <div className="fixed z-40">
@@ -27,7 +25,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
                                         {process.env.NAME}
                                     </p>
                                     <p className="text-xs text-neutral-500">
-                                        {process.env.DESCRIPTION}
+                                        <span id="hitokoto_text">{process.env.DESCRIPTION}</span>
                                     </p>
                                 </div>
                             </Link>
@@ -44,7 +42,7 @@ export function Header({ children }: { children?: React.ReactNode }) {
                                                 {process.env.NAME}
                                             </p>
                                             <p className="text-xs text-neutral-500">
-                                                {process.env.DESCRIPTION}
+                                                <span id="hitokoto_text">{process.env.DESCRIPTION}</span>
                                             </p>
                                         </div>
                                     </Link>

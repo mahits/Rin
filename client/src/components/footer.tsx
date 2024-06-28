@@ -4,6 +4,7 @@ import { ClientConfigContext } from '../state/config';
 import { Helmet } from "react-helmet";
 import { siteName } from '../utils/constants';
 import { useTranslation } from "react-i18next";
+import { fetchCountAndUpdateUI } from '../utils/count';
 
 type ThemeMode = 'light' | 'dark' | 'system';
 function Footer() {
@@ -14,6 +15,7 @@ function Footer() {
         const mode = localStorage.getItem('theme') as ThemeMode || 'system';
         setModeState(mode);
         setMode(mode);
+        fetchCountAndUpdateUI()
     }, [])
 
     const setMode = (mode: ThemeMode) => {
@@ -48,9 +50,7 @@ function Footer() {
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
                 </div>
                 <p className='text-sm text-neutral-500 font-normal text-center'>
-                    {t('count.page_pv')} <span id="busuanzi_page_pv"></span> | {t('count.page_uv')} <span id="busuanzi_page_uv"></span>
-                    <br/>
-                    {t('count.site_pv')} <span id="busuanzi_site_pv"></span> | {t('count.site_uv')} <span id="busuanzi_site_uv"></span>
+                    {t('count.site_pv')} <span id="site_pv"></span> | {t('count.site_uv')} <span id="site_uv"></span>
                 </p>
                 <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <span>

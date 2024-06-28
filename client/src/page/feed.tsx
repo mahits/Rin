@@ -12,6 +12,7 @@ import { headersWithAuth } from "../utils/auth";
 import { siteName } from "../utils/constants";
 import { Markdown } from "../components/markdown";
 import { useTranslation } from "react-i18next";
+import { fetchCountAndUpdateUI } from "../utils/count";
 
 
 type Feed = {
@@ -99,6 +100,7 @@ export function FeedPage({ id }: { id: string }) {
         }
       });
     ref.current = id;
+    fetchCountAndUpdateUI(true)
   }, [id]);
   return (
     <Waiting for={feed || error}>
@@ -199,6 +201,9 @@ export function FeedPage({ id }: { id: string }) {
                       {t('feed_card.updated$time', { time: format(feed.updatedAt) })}
                     </p>
                   )}
+                  <p className="text-gray-400 text-sm">
+                    {t('count.page_pv')} <span id="page_pv"></span> | {t('count.page_uv')} <span id="page_uv"></span>
+                  </p>  
                 </div>
                 <Markdown content={feed.content} />
                 {feed.hashtags.length > 0 && (

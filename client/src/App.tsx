@@ -16,6 +16,7 @@ import { headersWithAuth } from './utils/auth'
 import { tryInt } from './utils/int'
 import { Settings } from "./page/settings.tsx";
 import { ClientConfigContext, ConfigWrapper } from './state/config.tsx'
+import { fetchHitokoto } from './utils/hitokoto.ts'
  
 function App() {
   const ref = useRef(false)
@@ -52,16 +53,7 @@ function App() {
       })
     }
     ref.current = true
-    // count
-    const script = document.createElement('script');
-    script.defer = true;
-    script.src = "https://api.obdo.cc/count/js";
-    script.setAttribute("pjax", "");
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    fetchHitokoto();
   }, [])
   return (
     <>
