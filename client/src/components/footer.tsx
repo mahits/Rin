@@ -41,6 +41,14 @@ function Footer() {
                 <link rel="alternate" type="application/json" title={siteName} href="/sub/rss.json" />
             </Helmet>
             <div className="flex flex-col mb-8 space-y-2 justify-center items-center h-16 t-primary ani-show">
+                <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
+                    <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
+                    <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
+                    <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
+                </div>
+                <p className='text-sm text-neutral-500 font-normal link-line'>
+                    总访问量 <span id="busuanzi_site_pv">加载中</span> | 总访客数 <span id="busuanzi_site_uv">加载中</span>
+                </p>
                 <p className='text-sm text-neutral-500 font-normal link-line'>
                     <span>
                         © 2024 Powered by <a className='hover:underline' href="https://github.com/OXeu/Rin" target="_blank">Rin</a>
@@ -72,11 +80,6 @@ function Footer() {
                         </Popup>
                     </>}
                 </p>
-                <div className="w-fit-content inline-flex rounded-full border border-zinc-200 p-[3px] dark:border-zinc-700">
-                    <ThemeButton mode='light' current={modeState} label="Toggle light mode" icon="ri-sun-line" onClick={setMode} />
-                    <ThemeButton mode='system' current={modeState} label="Toggle system mode" icon="ri-computer-line" onClick={setMode} />
-                    <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
-                </div>
             </div>
             <br/><br/>
         </footer>
