@@ -52,6 +52,16 @@ function App() {
       })
     }
     ref.current = true
+    // count
+    const script = document.createElement('script');
+    script.defer = true;
+    script.src = "https://api.obdo.cc/count/js";
+    script.setAttribute("pjax", "");
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, [])
   return (
     <>
@@ -116,6 +126,10 @@ function App() {
   )
 }
 
+const metingJSHTML = {
+  __html: `<div style="max-width: 450px; margin: auto;"><meting-js autoplay="false" order="random" theme="#409EFF" list-folded="true" fixed="true" auto="https://music.163.com/#/playlist?id=8900628861"/></div>`
+};
+
 function RouteMe({ path, children, headerComponent, paddingClassName }:
   { path: PathPattern, children: React.ReactNode | ((params: DefaultParams) => React.ReactNode), headerComponent?: React.ReactNode, paddingClassName?: string }) {
   return (
@@ -129,6 +143,7 @@ function RouteMe({ path, children, headerComponent, paddingClassName }:
             {typeof children === 'function' ? children(params) : children}
           </Padding>
           <Footer />
+          <div dangerouslySetInnerHTML={metingJSHTML} />
         </>)
       }}
     </Route>

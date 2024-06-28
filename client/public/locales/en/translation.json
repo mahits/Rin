@@ -162,9 +162,9 @@
   "writing": "Writing",
   "year$year": "{{year}}",
   "count": {
-    "site_uv": "Total Visits",
+    "site_uv": "Total Visitors",
     "site_pv": "Total Views",
-    "page_pv": "Page Views",
-    "page_uv": "Page Visits"
+    "page_pv": "Views",
+    "page_uv": "Visitors"
   }
 }

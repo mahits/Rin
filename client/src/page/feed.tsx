@@ -199,6 +199,9 @@ export function FeedPage({ id }: { id: string }) {
                       {t('feed_card.updated$time', { time: format(feed.updatedAt) })}
                     </p>
                   )}
+                  <p className="text-gray-400 text-sm">
+                    {t('count.page_pv')} <span id="busuanzi_page_pv"></span> | {t('count.page_uv')} <span id="busuanzi_page_uv"></span>
+                  </p>
                 </div>
                 <Markdown content={feed.content} />
                 {feed.hashtags.length > 0 && (
