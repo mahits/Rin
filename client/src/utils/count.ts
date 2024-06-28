@@ -1,5 +1,5 @@
 let lastURL = '';
-let lastResult = null;
+let lastResult: null = null;
 let counting = false;
 
 export async function fetchCountAndUpdateUI(isFeed = false) {
@@ -18,7 +18,7 @@ export async function fetchCountAndUpdateUI(isFeed = false) {
       'X-Bsz-Referer': currentURL
     }
   });
-  const jsonResponse = await response.json();
+  const jsonResponse: any = await response.json();
   if (jsonResponse.success) {
     lastResult = jsonResponse.data;
     updateUI(lastResult, isFeed);
@@ -26,7 +26,11 @@ export async function fetchCountAndUpdateUI(isFeed = false) {
   counting = false;
 }
 
-function updateUI(data, isFeed, startTime = Date.now()) {
+function updateUI(data: { page_pv: any; page_uv: any; site_pv: any; site_uv: any; } | null, isFeed: boolean, startTime = Date.now()) {
+    if (data === null) {
+        return;
+    }
+  
     const { page_pv, page_uv, site_pv, site_uv } = data;
   
     const pagePvElements = document.querySelectorAll('#page_pv');
@@ -39,9 +43,9 @@ function updateUI(data, isFeed, startTime = Date.now()) {
       return;
     }
   
-    pagePvElements.forEach(element => element.innerText = page_pv.toString());
-    pageUvElements.forEach(element => element.innerText = page_uv.toString());
-    sitePvElements.forEach(element => element.innerText = site_pv.toString());
-    siteUvElements.forEach(element => element.innerText = site_uv.toString());
+    pagePvElements.forEach(element => element.textContent = page_pv.toString());
+    pageUvElements.forEach(element => element.textContent = page_uv.toString());
+    sitePvElements.forEach(element => element.textContent = site_pv.toString());
+    siteUvElements.forEach(element => element.textContent = site_uv.toString());
     counting = false;
-  }
+}
