@@ -78,6 +78,7 @@ function Footer() {
                     <ThemeButton mode='dark' current={modeState} label="Toggle dark mode" icon="ri-moon-line" onClick={setMode} />
                 </div>
             </div>
+            <br/><br/>
         </footer>
     );
 }
