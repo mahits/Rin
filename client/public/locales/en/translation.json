@@ -160,5 +160,11 @@
     "self_only": "Visible to self only"
   },
   "writing": "Writing",
-  "year$year": "{{year}}"
+  "year$year": "{{year}}",
+  "count": {
+    "site_uv": "Total Visits",
+    "site_pv": "Total Views",
+    "page_pv": "Page Views",
+    "page_uv": "Page Visits"
+  }
 }

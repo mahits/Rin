@@ -30,6 +30,12 @@
   "content": {
     "empty": "内容不能为空"
   },
+  "count": {
+    "site_uv": "总访客数",
+    "site_pv": "总浏览量",
+    "page_pv": "页浏览量",
+    "page_uv": "页访客数"
+  },
   "create": "创建",
   "created_at": "发布时间",
   "delete": {
