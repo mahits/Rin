@@ -35,6 +35,7 @@ function Footer() {
 
     return (
         <footer>
+            <br/><br/>
             <Helmet>
                 <link rel="alternate" type="application/rss+xml" title={siteName} href="/sub/rss.xml" />
                 <link rel="alternate" type="application/atom+xml" title={siteName} href="/sub/atom.xml" />
@@ -51,9 +52,9 @@ function Footer() {
                     <br/>
                     {t('count.site_pv')} <span id="busuanzi_site_pv"></span> | {t('count.site_uv')} <span id="busuanzi_site_uv"></span>
                 </p>
-                <p className='text-sm text-neutral-500 font-normal link-line'>
+                <p className='text-sm text-neutral-500 font-normal link-line text-center'>
                     <span>
-                        © 2024 Powered by <a className='hover:underline' href="https://github.com/OXeu/Rin" target="_blank">Rin</a>
+                        © 2024 <a className='hover:underline' href="https://www.bdovo.cc" target="_blank">Chisato22</a>
                     </span>
                     {config.getOrDefault('rss', false) && <>
                         <Spliter />
@@ -81,6 +82,8 @@ function Footer() {
                             </div>
                         </Popup>
                     </>}
+                    <br/>
+                    Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
                 </p>
             </div>
             <br/><br/>
