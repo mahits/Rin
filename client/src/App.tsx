@@ -22,13 +22,6 @@ function App() {
   const [profile, setProfile] = useState<Profile | undefined>()
   const [config, setConfig] = useState<ConfigWrapper>(new ConfigWrapper({}))
   const externalHTMLLoaded = useRef(false);
-  const loadScript = (src: string, content?: string) => {
-    const script = document.createElement('script');
-    if (src) script.src = src;
-    if (content) script.textContent = content;
-    script.async = true;
-    document.body.appendChild(script);
-  };
   useEffect(() => {
     if (ref.current) return
     if (getCookie('token')?.length ?? 0 > 0) {
