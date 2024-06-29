@@ -20,10 +20,13 @@
 
 5. 字体更换为 MiSans  
 
+6. 增加 Live2D 看板娘  
+
 注：上方所调用的所有 API 均为本人自托管，你也可以直接加到自己的站点中使用  
 - 计数: https://api.obdo.cc/count  
 - MetingAPI: https://api.obdo.cc/meting  
 - 一言: https://api.obdo.cc/hitokoto  
+- 看板娘: https://api.obdo.cc/live2d.js  
 
 
 # Rin
