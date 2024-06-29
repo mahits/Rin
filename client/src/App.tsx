@@ -21,13 +21,7 @@ function App() {
   const ref = useRef(false)
   const [profile, setProfile] = useState<Profile | undefined>()
   const [config, setConfig] = useState<ConfigWrapper>(new ConfigWrapper({}))
-  const [renderExternal, setRenderExternal] = useState(false);
   const externalHTMLLoaded = useRef(false);
-  const externalHTML = {
-    __html: ` 
-    <div style="max-width: 450px; margin: auto;"><meting-js autoplay="false" order="random" theme="#409EFF" list-folded="true" fixed="true" auto="https://music.163.com/#/playlist?id=8900628861"/></div>
-`
-  };
   const loadScript = (src: string, content?: string) => {
     const script = document.createElement('script');
     if (src) script.src = src;
@@ -69,18 +63,39 @@ function App() {
     const hasFetchAction = /FetchAction/.test(ua);
     if (!hasFetchAction && !externalHTMLLoaded.current) {
       externalHTMLLoaded.current = true;
-      const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
-      loadScript('', metingScriptContent);
-      const scripts = [
-        "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js",
-        "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"
+      const musicScripts = [
+        { src: "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js" },
+        { src: "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js" },
       ];
-      scripts.forEach(script => loadScript(script));
-      setRenderExternal(true);
-      const scripts2 = [
-        "https://assets.xn--9iq088f7qityd.com/js/live2d.js"
-      ];
-      scripts2.forEach(script => loadScript(script));
+      const live2dScript = { src: "https://assets.xn--9iq088f7qityd.com/js/live2d.js" };
+    
+      Promise.all(musicScripts.map(script => new Promise<void>((resolve, reject) => {
+        const scriptElement = document.createElement('script');
+        scriptElement.src = script.src;
+        scriptElement.onload = () => resolve();
+        scriptElement.onerror = () => reject();
+        scriptElement.async = true;
+        document.body.appendChild(scriptElement);
+      }))).then(() => {
+        const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
+        const metingScript = document.createElement('script');
+        metingScript.textContent = metingScriptContent;
+        document.body.appendChild(metingScript);
+    
+        const externalContainer = document.createElement('div');
+        externalContainer.innerHTML = `
+          <div style="max-width: 450px; margin: auto;">
+            <meting-js autoplay="false" order="random" theme="#409EFF" list-folded="true" fixed="true" auto="https://music.163.com/#/playlist?id=8900628861"/>
+          </div>
+        `;
+        document.body.appendChild(externalContainer);
+      });
+    
+      const live2dScriptElement = document.createElement('script');
+      live2dScriptElement.src = live2dScript.src;
+      live2dScriptElement.async = true;
+      document.body.appendChild(live2dScriptElement);
+    
     }
     ref.current = true
   }, [])
@@ -141,9 +156,6 @@ function App() {
             {/* Default route in a switch */}
             <Route>404: No such page!</Route>
           </Switch>
-          {renderExternal && (
-            <div dangerouslySetInnerHTML={externalHTML} />
-          )}
         </ProfileContext.Provider>
       </ClientConfigContext.Provider>
     </>
