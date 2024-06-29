@@ -69,8 +69,8 @@ function App() {
     const hasFetchAction = /FetchAction/.test(ua);
     if (!hasFetchAction && !externalHTMLLoaded.current) {
       externalHTMLLoaded.current = true;
-      const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
       setRenderExternal(true);
+      const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
       loadScript('', metingScriptContent);
       const scripts = [
         "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js",
