@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Popup from "reactjs-popup";
 import { removeCookie } from "typescript-cookie";
@@ -7,10 +7,14 @@ import { oauth_url } from "../main";
 import { Profile, ProfileContext } from "../state/profile";
 import { Icon } from "./icon";
 import { Padding } from "./padding";
+import { fetchHitokoto } from "../utils/hitokoto";
 
 export function Header({ children }: { children?: React.ReactNode }) {
     const profile = useContext(ProfileContext);
     const { t } = useTranslation()
+    useEffect(() => {
+        fetchHitokoto()
+    }, [])
     return (
         <>
             <div className="fixed z-40">

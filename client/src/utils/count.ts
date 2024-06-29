@@ -1,16 +1,9 @@
-let lastURL = '';
-let lastResult: null = null;
 let counting = false;
 
 export async function fetchCountAndUpdateUI(isFeed = false) {
   if (counting) return;
   counting = true;
   const currentURL = window.location.href;
-  if (currentURL === lastURL && lastResult !== null) {
-    setTimeout(() => updateUI(lastResult, isFeed), 50);
-    return;
-  }
-  lastURL = currentURL;
 
   const response = await fetch('https://api.obdo.cc/count/api', {
     method: 'POST',
@@ -20,8 +13,7 @@ export async function fetchCountAndUpdateUI(isFeed = false) {
   });
   const jsonResponse: any = await response.json();
   if (jsonResponse.success) {
-    lastResult = jsonResponse.data;
-    updateUI(lastResult, isFeed);
+    updateUI(jsonResponse.data, isFeed);
   }
   counting = false;
 }
