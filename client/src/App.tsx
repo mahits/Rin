@@ -69,15 +69,18 @@ function App() {
     const hasFetchAction = /FetchAction/.test(ua);
     if (!hasFetchAction && !externalHTMLLoaded.current) {
       externalHTMLLoaded.current = true;
-      setRenderExternal(true);
       const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
       loadScript('', metingScriptContent);
       const scripts = [
         "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js",
-        "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js",
-        "https://assets.xn--9iq088f7qityd.com/js/live2d.js",
+        "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"
       ];
       scripts.forEach(script => loadScript(script));
+      setRenderExternal(true);
+      const scripts2 = [
+        "https://assets.xn--9iq088f7qityd.com/js/live2d.js"
+      ];
+      scripts2.forEach(script => loadScript(script));
     }
     ref.current = true
   }, [])
