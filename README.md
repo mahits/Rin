@@ -14,7 +14,7 @@
 因为是从变量中获取站点链接，所以你需要先在 Cloudflare Pages 的环境变量中新增一个 `URL` 值为自己的站点链接
 
 3. 加入音乐播放器  
-在页面底部加入 MetingJS 播放器，歌单自己在 [App.tsx](/client/src/App.tsx) 改  
+在页面底部加入 MetingJS 播放器，歌单自己在 [index.html](/client/index.html) 改  
 
 4. 将站点描述修改为一言  
 
