@@ -70,6 +70,7 @@ function App() {
     if (!hasFetchAction && !externalHTMLLoaded.current) {
       externalHTMLLoaded.current = true;
       const metingScriptContent = `var meting_api='https://api.obdo.cc/meting/?server=:server&type=:type&id=:id';`;
+      setRenderExternal(true);
       loadScript('', metingScriptContent);
       const scripts = [
         "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js",
@@ -77,7 +78,6 @@ function App() {
         "https://assets.xn--9iq088f7qityd.com/js/live2d.js",
       ];
       scripts.forEach(script => loadScript(script));
-      setRenderExternal(true);
     }
     ref.current = true
   }, [])
