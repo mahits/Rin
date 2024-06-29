@@ -74,7 +74,7 @@ function App() {
       const scripts = [
         "https://npm.elemecdn.com/aplayer@1.10.1/dist/APlayer.min.js",
         "https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js",
-        "https://api.obdo.cc/live2d.js",
+        "https://assets.xn--9iq088f7qityd.com/js/live2d.js",
       ];
       scripts.forEach(script => loadScript(script));
       setRenderExternal(true);

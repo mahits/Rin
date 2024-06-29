@@ -59,7 +59,7 @@ async function saveFile(filename: string, data: string) {
 
 // Fetch All Links
 const fetchedLinks = new Set<string>();
-const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 FetchAction/1.0';
+const ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36 FetchAction/1.0';
 const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox']
 });
@@ -69,7 +69,7 @@ async function fetchPage(url: string) {
     console.log(`Fetching ${url}`);
     const page = await browser.newPage();
     await page.setUserAgent(ua);
-    const response = await page.goto(url, { waitUntil: 'networkidle2', timeout: 120000 });
+    const response = await page.goto(url, { waitUntil: 'networkidle2' });
     if (!response) {
         console.error(`Failed to fetch ${url}`);
         return;
