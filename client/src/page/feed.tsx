@@ -175,7 +175,7 @@ export function FeedPage({ id }: { id: string }) {
                             className="text-gray-400 text-[12px]"
                             title={new Date(feed.updatedAt).toLocaleString()}
                           >
-                            {t("feed_card.updated$time", {
+                            | {t("feed_card.updated$time", {
                               time: format(feed.updatedAt),
                             })}
                           </p>
