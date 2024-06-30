@@ -166,5 +166,6 @@
     "self_only": "仅自己可见"
   },
   "writing": "写作",
-  "year$year": "{{year}} 年"
+  "year$year": "{{year}} 年",
+  "cdn_from_china": "提供中国境内加速"
 }

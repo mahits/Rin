@@ -98,7 +98,7 @@ function Footer() {
                     </>}
                     <br/>
                     Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
-                    {cdnFlag && <div>由 <a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> 提供大陆加速</div>}
+                    {cdnFlag && <div><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</div>}
                 </p>
             </div>
             <br/><br/>
