@@ -97,8 +97,9 @@ function Footer() {
                         </Popup>
                     </>}
                     <br/>
-                    Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
-                    {cdnFlag && <div><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</div>}
+                    <a className='hover:underline' href="https://icp.gov.moe/?keyword=20240729" target="_blank">萌ICP备20240729号</a>
+                    <br/>Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                    {cdnFlag && <><br/><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</>}
                 </p>
             </div>
             <br/><br/><br/>
