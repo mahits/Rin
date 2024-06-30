@@ -160,30 +160,28 @@ export function FeedPage({ id }: { id: string }) {
                 <div className="flex justify-between">
                   <div>
                     <div className="mt-1 mb-1 flex flex-col">
-                      <div className="flex gap-1">
-                        <p
-                          className="text-gray-400 text-[12px]"
-                          title={new Date(feed.createdAt).toLocaleString()}
-                        >
+                      <div className="flex gap-1 text-gray-400 text-[12px]">
+                        <p title={new Date(feed.createdAt).toLocaleString()}>
                           {t("feed_card.published$time", {
                             time: format(feed.createdAt),
                           })}
                         </p>
-
                         {feed.createdAt !== feed.updatedAt && (
-                          <p
-                            className="text-gray-400 text-[12px]"
-                            title={new Date(feed.updatedAt).toLocaleString()}
-                          >
-                            | {t("feed_card.updated$time", {
-                              time: format(feed.updatedAt),
-                            })}
-                          </p>
+                          <><span>|</span>
+                            <p title={new Date(feed.updatedAt).toLocaleString()}>
+                              {t("feed_card.updated$time", {
+                                time: format(feed.updatedAt),
+                              })}
+                            </p></>
                         )}
                       </div>
-                      <div>
-                        <p className="text-gray-400 text-[12px]">
-                          {t('count.page_pv')} <span id="page_pv"></span> | {t('count.page_uv')} <span id="page_uv"></span>
+                      <div className="flex gap-1 text-gray-400 text-[12px]">
+                        <p>
+                          {t('count.page_pv')} <span id="page_pv" />
+                        </p>
+                        <span>|</span>
+                        <p>
+                          {t('count.page_uv')} <span id="page_uv" />
                         </p>
                       </div>
                     </div>
