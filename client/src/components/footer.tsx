@@ -11,10 +11,24 @@ function Footer() {
     const { t } = useTranslation()
     const [modeState, setModeState] = useState<ThemeMode>('system');
     const config = useContext(ClientConfigContext);
+    const [cdnFlag, setCdnFlag] = useState(false);
+    const [flagRequested, setFlagRequested] = useState(false);
     useEffect(() => {
         const mode = localStorage.getItem('theme') as ThemeMode || 'system';
         setModeState(mode);
         setMode(mode);
+        if (!flagRequested) {
+            setFlagRequested(true)
+            fetch('/cdnflag')
+                .then(response => response.text())
+                .then(data => {
+                    if (data === '1') {
+                        setCdnFlag(true);
+                    }
+                })
+                .catch(error => console.error('Error fetching CDN flag:', error))
+                .finally();
+        }
         fetchCountAndUpdateUI()
     }, [])
 
@@ -84,6 +98,7 @@ function Footer() {
                     </>}
                     <br/>
                     Powered by <a className='hover:underline' href="https://github.com/liuran001/Rin" target="_blank">Rin</a> & <a className='hover:underline' href="https://www.cloudflare.com" target="_blank">Cloudflare</a>
+                    {cdnFlag && <div>由 <a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> 提供大陆加速</div>}
                 </p>
             </div>
             <br/><br/>
