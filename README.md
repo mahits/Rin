@@ -6,6 +6,8 @@
 
 原仓库: https://github.com/OXeu/Rin
 
+Rin 博客简易部署教程 — 笨蛋小破站: https://blog.obdo.cc/feed/10
+
 ## 相较官方版本的修改
 
 1. 在文章中和页脚加入访问计数  
