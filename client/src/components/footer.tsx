@@ -101,7 +101,7 @@ function Footer() {
                     {cdnFlag && <div><a className='hover:underline' href="https://www.dogecloud.com/" target="_blank">DogeCloud</a> {t('cdn_from_china')}</div>}
                 </p>
             </div>
-            <br/><br/>
+            <br/><br/><br/>
         </footer>
     );
 }
