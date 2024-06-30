@@ -6,6 +6,8 @@
 
 原仓库: https://github.com/OXeu/Rin
 
+Rin 博客简易部署教程 — 笨蛋小破站: https://blog.obdo.cc/feed/10
+
 ## 相较官方版本的修改
 
 1. 在文章中和页脚加入访问计数  
@@ -14,7 +16,7 @@
 因为是从变量中获取站点链接，所以你需要先在 Cloudflare Pages 的环境变量中新增一个 `URL` 值为自己的站点链接
 
 3. 加入音乐播放器  
-在页面底部加入 MetingJS 播放器，歌单自己在 [index.html](/client/index.html) 改  
+在页面底部加入 MetingJS 播放器，歌单自己在 [App.tsx](/client/src/App.tsx) 改  
 
 4. 将站点描述修改为一言  
 
@@ -28,6 +30,8 @@
 - 一言: https://api.obdo.cc/hitokoto  
 - 看板娘: https://api.obdo.cc/live2d.js  
 
+**由于 Rin 是一个刚起步的项目，功能方面存在着很多不足，或许这里的功能今后都会在官方版本中实现，这里只是因为自己需要所以就改了**  
+~~因为代码基本上都是gpt写的，实现逻辑一个比一个屎，所以不考虑给官方提pr了~~
 
 # Rin
 
