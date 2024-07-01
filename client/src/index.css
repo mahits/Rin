@@ -229,11 +229,11 @@ a.toc-link {
 /* MoeICP */
 @font-face {
   font-family: 'icomoon';
-  src:  url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.eot?n169zo');
-  src:  url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.eot?n169zo#iefix') format('embedded-opentype'),
-    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.ttf?n169zo') format('truetype'),
-    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.woff?n169zo') format('woff'),
-    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.svg?n169zo#icomoon') format('svg');
+  src:  url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.eot');
+  src:  url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.eot') format('embedded-opentype'),
+    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.ttf') format('truetype'),
+    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.woff') format('woff'),
+    url('https://assets.xn--9iq088f7qityd.com/fonts/icomoon.svg') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
