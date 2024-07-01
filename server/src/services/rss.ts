@@ -73,7 +73,7 @@ export async function rssCrontab(env: Env) {
         description: description,
         id: frontendUrl,
         link: frontendUrl,
-        favicon: `${frontendUrl}/favicon.png`,
+        favicon: `${frontendUrl}/favicon.jpg`,
         copyright: "All rights reserved 2024",
         updated: new Date(), // optional, default = today
         generator: "Feed from Rin", // optional, default = 'Feed for Node.js'
