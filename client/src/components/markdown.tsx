@@ -45,13 +45,13 @@ export function Markdown({ content }: { content: string }) {
           if (newlinesBefore >= 1) {
             return (
               <div className="block w-full text-center my-4">
-                <img {...props} className="mx-auto" style={{ zoom: "0.75" }} />
+                <img {...props} className="mx-auto rounded-xl" style={{ zoom: "0.75" }} />
               </div>
             );
           } else {
             return (
               <span className="inline-block align-middle mx-1 ">
-                <img {...props} className="mb-1.5" style={{ zoom: "0.5" }} />
+                <img {...props} className="mb-1.5 rounded-xl" style={{ zoom: "0.5" }} />
               </span>
             );
           }
@@ -99,7 +99,7 @@ export function Markdown({ content }: { content: string }) {
             return (
               <code
                 {...rest}
-                className={`bg-[#eff1f3] dark:bg-[#4a5061] h-[24px] px-[4px] rounded-md mx-[2px] py-[2px] text-slate-800 dark:text-slate-300 ${
+                className={`bg-[#eff1f3] dark:bg-[#4a5061] h-[24px] px-[4px] rounded-md mx-[2px] py-[2px] text-neutral-800 dark:text-neutral-300 ${
                   className || ""
                 }`}
                 style={inlineCodeStyle}
@@ -170,43 +170,42 @@ export function Markdown({ content }: { content: string }) {
         },
         h1({ children, ...props }) {
           return (
-            <h1 className="text-3xl font-bold mt-4" {...props}>
+            <h1 id={children?.toString()} className="text-3xl font-bold mt-4" {...props}>
               {children}
             </h1>
           );
         },
         h2({ children, ...props }) {
           return (
-            <h2 className="text-2xl font-bold mt-8" {...props}>
+            <h2 id={children?.toString()} className="text-2xl font-bold mt-4" {...props}>
               {children}
-              <div className="h-[2px] border-b" />
             </h2>
           );
         },
         h3({ children, ...props }) {
           return (
-            <h3 className="text-xl font-bold mt-4" {...props}>
+            <h3 id={children?.toString()} className="text-xl font-bold mt-4" {...props}>
               {children}
             </h3>
           );
         },
         h4({ children, ...props }) {
           return (
-            <h4 className="text-lg font-bold mt-4" {...props}>
+            <h4 id={children?.toString()} className="text-lg font-bold mt-4" {...props}>
               {children}
             </h4>
           );
         },
         h5({ children, ...props }) {
           return (
-            <h5 className="text-base font-bold mt-4" {...props}>
+            <h5 id={children?.toString()} className="text-base font-bold mt-4" {...props}>
               {children}
             </h5>
           );
         },
         h6({ children, ...props }) {
           return (
-            <h6 className="text-sm font-bold mt-4" {...props}>
+            <h6 id={children?.toString()} className="text-sm font-bold mt-4" {...props}>
               {children}
             </h6>
           );
